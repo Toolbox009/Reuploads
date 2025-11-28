@@ -124,11 +124,10 @@ function finity.new(gprojectName, thinProject)
 	local self = finity
 
 
-	local theme = finity.theme
+	local theme = finity.dark_theme
 	local projectName = false
 	local thinMenu = false
 	
-	theme = finity.dark_theme
 	if gprojectName then projectName = gprojectName end
 	if thinProject then thinMenu = thinProject end
 	
