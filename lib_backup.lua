@@ -91,9 +91,9 @@ local mouse = finity.gs["Players"].LocalPlayer:GetMouse()
 
 function finity:Create(class, properties)
 	local object = Instance.new(class)
-	
+
 	for prop, val in next, properties do
-		if prop ~= "Parent" then
+		if object[prop] and prop ~= "Parent" then
 			object[prop] = val
 		end
 	end
@@ -118,16 +118,17 @@ function finity:addShadow(object, transparency)
 	shadow.Parent = object
 end
 
-function finity.new(gprojectName, thinProject)
+function finity.new(isdark, gprojectName, thinProject)
 	local finityObject = {}
 	local self2 = finityObject
 	local self = finity
 
 
-	local theme = finity.dark_theme
+	local theme = finity.theme
 	local projectName = false
 	local thinMenu = false
 	
+	if isdark == true then theme = finity.dark_theme end
 	if gprojectName then projectName = gprojectName end
 	if thinProject then thinMenu = thinProject end
 	
@@ -633,7 +634,7 @@ function finity.new(gprojectName, thinProject)
 									callback(cheat.value)
 								end)
 
-								if not s then end
+								if not s then warn("error: ".. e) end
 							end
 
 							if cheat.value then
@@ -867,7 +868,7 @@ function finity.new(gprojectName, thinProject)
 												callback(cheat.value)
 											end)
 	
-											if not s then end
+											if not s then warn("error: ".. e) end
 										end
 									end
 								end)
@@ -950,7 +951,7 @@ function finity.new(gprojectName, thinProject)
 									callback(cheat.value)
 								end)
 
-								if not s then end
+								if not s then warn("error: ".. e) end
 							end
 						end
 
