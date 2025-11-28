@@ -93,7 +93,7 @@ function finity:Create(class, properties)
 	local object = Instance.new(class)
 
 	for prop, val in next, properties do
-		if object[prop] and prop ~= "Parent" then
+		if prop ~= "Parent" then
 			object[prop] = val
 		end
 	end
